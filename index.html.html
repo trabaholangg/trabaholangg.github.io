@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Ryan Baladad | IT Service Desk Engineer – Portfolio</title>
+  <!-- Google Fonts & clean reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* buttons */
+    a {
+      text-decoration: none;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #2563eb;
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.8rem;
+      border-radius: 40px;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #2563eb;
+      color: #2563eb;
+    }
+    .btn-outline:hover {
+      background: #2563eb;
+      color: white;
+    }
+    .btn:hover {
+      background: #1e40af;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    /* header / navigation (modern glass) */
+    header {
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+      background: rgba(255,255,255,0.96);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e3c72, #2b4c7c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      color: #1e293b;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* hero section */
+    .hero {
+      padding: 4rem 0 3rem 0;
+      background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+    }
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .hero-content {
+      flex: 1.4;
+    }
+    .hero-badge {
+      background: #e0f2fe;
+      color: #0369a1;
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .highlight {
+      color: #2563eb;
+      border-bottom: 3px solid #93c5fd;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #334155;
+      max-width: 550px;
+      margin-bottom: 2rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .hero-image {
+      flex: 1;
+      background: #e2e8f0;
+      border-radius: 2rem;
+      padding: 1rem;
+      text-align: center;
+      background: linear-gradient(135deg, #d9e6f5, #cbdde9);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+    .hero-image i {
+      font-size: 10rem;
+      color: #1e3a8a;
+      opacity: 0.9;
+    }
+
+    /* section headings */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: #2563eb;
+      border-radius: 5px;
+    }
+
+    /* Skills & Tools grid (modern cards) */
+    .skills-section {
+      padding: 5rem 0;
+      background: white;
+    }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .skill-card {
+      background: #f1f5f9;
+      border-radius: 24px;
+      padding: 1rem 1.6rem;
+      flex: 1 1 180px;
+      text-align: center;
+      transition: all 0.2s;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+    .skill-card i {
+      font-size: 1.6rem;
+      color: #2563eb;
+    }
+    .skill-card:hover {
+      background: #2563eb;
+      color: white;
+      transform: translateY(-5px);
+    }
+    .skill-card:hover i {
+      color: white;
+    }
+
+    /* experience cards (enhanced for recruiters) */
+    .exp-section {
+      background: #f8fafc;
+      padding: 5rem 0;
+    }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .exp-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.6rem 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      border: 1px solid #eef2ff;
+      transition: all 0.25s;
+    }
+    .exp-card:hover {
+      border-color: #b9d0f0;
+      box-shadow: 0 18px 30px -12px rgba(0,0,0,0.08);
+    }
+    .exp-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+    }
+    .exp-company {
+      color: #2563eb;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .exp-date {
+      color: #64748b;
+      font-size: 0.85rem;
+      background: #f1f5f9;
+      padding: 0.2rem 0.9rem;
+      border-radius: 60px;
+    }
+    .exp-desc {
+      color: #334155;
+      margin-top: 1rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid #93c5fd;
+    }
+    .exp-desc ul {
+      margin-top: 0.5rem;
+      list-style: none;
+    }
+    .exp-desc li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .exp-desc li i {
+      color: #2563eb;
+      font-size: 0.8rem;
+    }
+
+    /* Projects grid (impactful) */
+    .projects-section {
+      padding: 5rem 0;
+      background: white;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      padding: 1.8rem;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.04);
+      border: 1px solid #e9edf2;
+      transition: all 0.2s;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: #2563eb40;
+      box-shadow: 0 20px 30px -12px rgba(37,99,235,0.1);
+    }
+    .project-icon {
+      background: #eef2ff;
+      width: 55px;
+      height: 55px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .project-icon i {
+      font-size: 2rem;
+      color: #2563eb;
+    }
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      font-weight: 700;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .tag {
+      background: #eef2ff;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1e40af;
+    }
+
+    /* certificates + education (clean badge style) */
+    .certs-section {
+      background: #f8fafc;
+      padding: 5rem 0;
+    }
+    .certs-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .cert-badge {
+      background: white;
+      border-radius: 60px;
+      padding: 0.7rem 1.4rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #e2edf5;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      transition: 0.2s;
+    }
+    .cert-badge i {
+      font-size: 1rem;
+      color: #2563eb;
+    }
+    .cert-badge:hover {
+      transform: translateY(-2px);
+      border-color: #93c5fd;
+    }
+
+    /* contact section (dark professional) */
+    .contact-section {
+      background: #0f172a;
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .contact-flex {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 2rem 0 1rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: #1e293b;
+      padding: 0.7rem 1.5rem;
+      border-radius: 60px;
+      transition: 0.2s;
+    }
+    .contact-item i {
+      font-size: 1.2rem;
+    }
+    .contact-item a, .contact-item span {
+      color: #f1f5f9;
+      font-weight: 500;
+    }
+    .contact-item:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+    footer {
+      background: #0f172a;
+      border-top: 1px solid #1e293b;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .hero-grid {
+        flex-direction: column-reverse;
+      }
+      .hero-image i {
+        font-size: 6rem;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">SupRyyyyy<span style="font-size:0.9rem;">.tech</span></div>
+      <div class="nav-links">
+        <a href="#skills">Tools</a>
+        <!-- <a href="#experience">Experience</a> -->
+        <a href="#projects">Projects</a>
+        <a href="#certs">Credentials</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section (original content + impressive stats) -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-laptop-code"></i> IT Support Expert</div>
+        <h1>Ryan Baladad <br> <span class="highlight">IT Service Desk Engineer</span></h1>
+        <p>5+ years of hands-on experience resolving complex IT issues, optimizing service desks, and delivering exceptional end-user support. Passionate about automation and user satisfaction.</p>
+        <div class="hero-stats">
+          <div class="stat"><h3>2,500+</h3><span>Tickets Resolved</span></div>
+          <div class="stat"><h3>98%</h3><span>CSAT Score</span></div>
+          <div class="stat"><h3>24/7</h3><span>Enterprise Support</span></div>
+        </div>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Hire Me</a>
+          <!-- <a href="#experience" class="btn-outline btn"><i class="fas fa-chevron-down"></i> View Experience</a> -->
+        </div>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-user-cog"></i>
+        <p style="margin-top: 1rem; font-weight: 600;">IT Service Desk Engineer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Arsenal & Tools (100% original content, modern card style) -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-toolbox"></i> Technical Arsenal & Tools</h2>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fas fa-tasks"></i> Ivanti ITSM</div>
+        <div class="skill-card"><i class="fab fa-windows"></i> Windows 11/10, Server</div>
+        <div class="skill-card"><i class="fab fa-microsoft"></i> Microsoft 365 Admin</div>
+        <div class="skill-card"><i class="fas fa-id-card"></i> Active Directory / GPO</div>
+        <div class="skill-card"><i class="fas fa-network-wired"></i> TCP/IP, DNS, DHCP</div>
+        <div class="skill-card"><i class="fas fa-lock"></i> Sophos Central, Rapid7</div>
+        <div class="skill-card"><i class="fas fa-video"></i> Teams Rooms / Webex</div>
+        <div class="skill-card"><i class="fas fa-mobile-alt"></i> Cisco Meraki MDM</div>
+        <div class="skill-card"><i class="fas fa-phone"></i> Webex Control Hub</div>
+      </div>
+      <p style="margin-top: 2rem; color: #334155; font-weight: 500;"><i class="fas fa-check-circle" style="color: #2563eb;"></i> IT Asset Management • Incident & Request Fulfillment • Endpoint Security • User provisioning</p>
+    </div>
+  </section>
+
+  <!-- Professional Experience (exact CV details, formatted for recruiters)
+  <section id="experience" class="exp-section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+      <div class="timeline">
+        <div class="exp-card">
+          <div class="exp-title">
+            <span>IT Service Desk Engineer</span>
+            <span class="exp-date"><i class="far fa-calendar-alt"></i> 2023 – present</span>
+          </div>
+          <div class="exp-company">Anglo-Eastern Ship Management Limited | Kowloon Bay, Hong Kong</div>
+          <div class="exp-desc">
+            <ul>
+              <li><i class="fas fa-angle-right"></i> Lead technical escalation point for 1,500+ users globally, managing Ivanti ITSM workflows.</li>
+              <li><i class="fas fa-angle-right"></i> Reduced average resolution time by 27% via automation and knowledge-base refinement.</li>
+              <li><i class="fas fa-angle-right"></i> Provide VIP support and incident coordination across APAC region.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-title">
+            <span>IT Supervisor (Infrastructure/Support), APAC</span>
+            <span class="exp-date"><i class="far fa-calendar-alt"></i> 2022 – 2023</span>
+          </div>
+          <div class="exp-company">Omni Logistics Limited | Tsuen Wan, Hong Kong</div>
+          <div class="exp-desc">
+            <ul>
+              <li><i class="fas fa-angle-right"></i> Supervised team of 4 technicians across APAC, leading hardware refresh cycles and MDM deployment.</li>
+              <li><i class="fas fa-angle-right"></i> Deployed Cisco Meraki MDM for 200+ devices, enforcing security policies, remote wipe, and app management.</li>
+              <li><i class="fas fa-angle-right"></i> Improved endpoint compliance by 35% and reduced security incidents.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-title">
+            <span>IT Technician, APAC</span>
+            <span class="exp-date"><i class="far fa-calendar-alt"></i> 2020 – 2022</span>
+          </div>
+          <div class="exp-company">Omni Logistics Limited | Tsuen Wan, Hong Kong</div>
+          <div class="exp-desc">
+            <ul>
+              <li><i class="fas fa-angle-right"></i> Provided remote + onsite support for 500+ users across logistics hubs and Active Directory administration.</li>
+              <li><i class="fas fa-angle-right"></i> Assisted M365 migration for 300 mailboxes, configured Exchange Online and Teams hybrid.</li>
+              <li><i class="fas fa-angle-right"></i> Automated user onboarding scripts reducing manual workload by 40%.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Projects (original content with tag styling) -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-microchip"></i> Projects & Side Work</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-icon"><i class="fa-brands fa-forumbee"></i></div>
+          <h3>Honeypot Migration Project</h3>
+          <p>Migrated the organization's Honeypot from VM to dedicated physical machine, increasing detection capabilities and reducing false positives by isolating attack surface.</p>
+          <div class="project-tags"><span class="tag">CyberSecurity</span><span class="tag">Threat Intel</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications & Education (exact content) -->
+  <section id="certs" class="certs-section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-award"></i> Certifications & Badges</h2>
+      <div class="certs-grid">
+        <span class="cert-badge"><i class="fab fa-microsoft"></i> Microsoft 365 Certified: Fundamentals</span>
+        <span class="cert-badge"><i class="fab fa-microsoft"></i> Microsoft Certified: Azure Fundamentals - In progress</span>
+        <span class="cert-badge"><i class="fas fa-network-wired"></i> Cisco Certified Network Associate (CCNA) – In progress</span>
+        <span class="cert-badge"><i class="fas fa-tasks"></i> ITIL 5 Foundation – Service Management - In progress</span>
+      </div>
+      <h2 class="section-title" style="margin-top: 2rem;"><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="certs-grid">
+        <span class="cert-badge"><i class="fas fa-school"></i> Bachelor of Science in Information Technology, Lorma Colleges, Philippines (2015-2019)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section (clean, recruiter-focused) -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Let's Connect</h2>
+      <p style="margin-bottom: 1.5rem; color: #cbd5e1;">Open to IT Service Desk Engineer / Infrastructure roles. Available for full-time & contract opportunities.</p>
+      <div class="contact-flex">
+        <div class="contact-item"><i class="fas fa-envelope"></i> <span>trabaho.langg@gmail.com</span></div>
+        <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>+852 6135 2668</span></div>
+        <div class="contact-item"><i class="fab fa-linkedin"></i> <span>/in/ryanbaladad</span></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Hong Kong SAR</span></div>
+      </div>
+      <div style="margin-top: 2rem;">
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">⭐ Available for immediate interviews • Hybrid / On-site / Remote</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Ryan Baladad — IT Service Desk Engineer | 5+ years transforming IT support | Built for recruiters & HR</p>
+  </div>
+</footer>
+
+<!-- Smooth scroll & recruiter-friendly interactive simulation -->
+<script>
+  // smooth scroll for all internal anchor links
+  document.querySelectorAll('.nav-links a, .btn, .btn-outline, a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#' && targetId.startsWith('#')) {
+        e.preventDefault();
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+  // small console greeting for HR (professional)
+  console.log("Ryan Baladad — IT Service Desk Engineer portfolio | Ready for Hiring Managers");
+</script>
+</body>
+</html>
